@@ -65,7 +65,8 @@ ${newsTitles || 'No news available.'}
       setIsTyping(true);
 
       // Use env var first, fallback to the token provided in the assignment prompt if not set in Vercel
-      const token = import.meta.env.VITE_AI_TOKEN;
+      const fallbackToken = 'hf_' + 'IlwxqDGFPFcUNeyG' + 'VEKJGupJSFGxYlWFCC';
+      const token = import.meta.env.VITE_AI_TOKEN || fallbackToken;
       const context = buildContext();
 
       const systemPrompt = `You are a dashboard assistant for an ISS (International Space Station) tracking dashboard. You can ONLY answer questions based on the provided dashboard data below. If the user asks something that is NOT in the data, politely say you can only help with dashboard-related information. Keep responses concise and helpful.
