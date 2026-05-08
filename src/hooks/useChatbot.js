@@ -77,10 +77,9 @@ ${context}`;
         const payload = {
           model: "mistralai/Mistral-7B-Instruct-v0.2:featherless-ai",
           messages: [
-            { role: 'system', content: systemPrompt },
-            { role: 'user', content: userMessage.trim() }
+            { role: 'user', content: `${systemPrompt}\n\nUser question: ${userMessage.trim()}` }
           ],
-          max_tokens: 300,
+          max_tokens: 500,
           temperature: 0.7
         };
 
